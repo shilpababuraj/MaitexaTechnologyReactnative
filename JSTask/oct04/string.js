@@ -33,7 +33,7 @@ console.log(result3) //4
 // 4) String lastIndexOf()
 //syntax:str.lastIndexOf(searchValue, fromIndex)
 let result4=nam.lastIndexOf('sha')
-console.log(result4)
+console.log(result4) //7
 
 // 5) String startsWith()
 // syntax:str.startsWith(searchString, position)

@@ -3,7 +3,7 @@
 //  but replace multiples of 3 with "Fizz" and multiples of 5 with "Buzz," and multiples 
 //  of both with "FizzBuzz."
 
-let number=10;
+let number=157;
 function fizzBuxxGame ()
 {
     if(number % 5 ===0  && number % 3 ===0) 

@@ -23,8 +23,9 @@ export default function Dice() {
 
   const roller = () => {
     let diceCount;
+    let ImageRandom ={first,second,third,fourth,fifth,sixth}
 
-    for (let i = 1; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
       diceCount = Math.floor(Math.random() * 6 + 1);
       console.log(diceCount);
       

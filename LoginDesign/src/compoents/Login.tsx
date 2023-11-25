@@ -6,12 +6,37 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React,{useState} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import { AppStackParamList } from '../App';
 
-export default function Login() {
+
+
+type LoginProps = NativeStackScreenProps <AppStackParamList,"Login">;
+
+export default function Login({navigation}:LoginProps) {
+
+  // const [email,setEmail] = useState('')
+  // const [password,setPassword] = useState('')
+  
+  const [loginDetails,setLoginDetails] = useState({email:'',password:''})
+console.log(loginDetails);
+
+  const Data =()=>
+  {
+    navigation.navigate('LoginData',{Detail:loginDetails})
+    // console.log(email)
+  
+  }
+  
+const handleUser=(data:string,name:string)=>{
+  // console.log(data,name);
+  setLoginDetails({...loginDetails,[name]:data})
+  
+}
   return (
     <View style={styles.container}>
       <Image
@@ -26,6 +51,8 @@ export default function Login() {
         <AntDesign name="user" style={{top: 18, fontSize: 18, left: 10}} />
         <TextInput
           placeholder="E-mail"
+           value={loginDetails.email}
+           onChangeText={(data)=>{handleUser(data,'email')}}
           style={{paddingLeft: 20, fontSize: 16, top: 4}}
         />
       </View>
@@ -34,6 +61,8 @@ export default function Login() {
         <Entypo name="fingerprint" style={{top: 18, fontSize: 18, left: 10}} />
         <TextInput
           placeholder="Password"
+          value={loginDetails.password}
+          onChangeText={(text)=>{handleUser(text,'password')}}
           style={{paddingLeft: 20, fontSize: 16, top: 4}}
         />
         <MaterialIcon
@@ -44,7 +73,9 @@ export default function Login() {
       <TouchableOpacity>
       <Text style={styles.forgotStyle}>Forget Password ?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button1}>
+      <TouchableOpacity style={styles.button1}
+        onPress={Data}
+      >
         <Text style={styles.button1Text}>LOGIN</Text>
       </TouchableOpacity>
       <Text style={{textAlign: 'center', fontSize: 18}}>OR</Text>
@@ -58,7 +89,9 @@ export default function Login() {
       <Text style={{textAlign: 'center'}}>
         Don't have an Account?
         </Text>
-        <TouchableOpacity style={{}}>
+        <TouchableOpacity style={{}}
+         onPress={()=>navigation.push('Signin')}
+        >
         <Text style={{color: '#0ABDE3'}}>  Signup</Text>
         </TouchableOpacity>
   </View>  

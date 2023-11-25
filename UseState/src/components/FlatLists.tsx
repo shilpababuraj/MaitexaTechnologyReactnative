@@ -1,7 +1,7 @@
-import {Image, StyleSheet, Text, View, FlatList, ImageSourcePropType, ScrollView} from 'react-native';
+import {Image, StyleSheet, Text, View, FlatList, ImageSourcePropType,} from 'react-native';
 import React from 'react';
 
-interface Dataprops {   // define  props type
+interface Dataprops {   // define props with its type
   id: number;
   image: ImageSourcePropType;
   title: string;
