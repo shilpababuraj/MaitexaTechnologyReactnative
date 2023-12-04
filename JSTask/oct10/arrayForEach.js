@@ -14,12 +14,13 @@ return sum;
 }
 
 
-console.log(sumofArray())
- //output
+console.log(sumofArray())  //output -125
+
+//item
 // 65
 // 44
 // 12
 // 4
-// 125
+
 
 

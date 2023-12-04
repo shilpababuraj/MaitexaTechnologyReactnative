@@ -9,6 +9,14 @@
 // filter((element,index)=>{
 
 // })
+const alpha=['a','a','b','b','c','c','d']
+
+function removeDuplicateString ()
+{
+    const duplicateStr= alpha.filter((item,index)=>alpha.indexOf(item)===index)
+    return duplicateStr
+}
+console.log(removeDuplicateString())
 
 const number=[1,1,2,4,6,5,2]
 

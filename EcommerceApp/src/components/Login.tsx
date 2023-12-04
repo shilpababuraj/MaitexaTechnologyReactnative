@@ -13,29 +13,19 @@ import logo from '../assets/images/logo.png';
 export default function Login({navigation}) {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [login,setLogin]=useState();
  // State variable to track password visibility 
  const [showPassword, setShowPassword] = useState(false); 
 
     const handleLogin = () => {
-
+       const Success= true;
         console.log('haiii');
         console.log(userName);
         console.log(password);
         
         
-        
-        // axios.post('url',{username: userName, password: password})
-    //     axios
-    //   .post('https://jsonplaceholder.typicode.com/posts', {
-    //     username:userName,
-    //     password:password
-    //   })
-    //   .then((response) => response.json())
-    //         .then((responseData) => {
-    //           console.log((responseData));
-    //         })
-
-    //     .catch ((err)=>console.log(err))
+if (Success)
+{
 
         fetch("https://ecommerce-s2.onrender.com/api/login", {
             method: "POST",
@@ -43,10 +33,10 @@ export default function Login({navigation}) {
               Accept: "application/json",
               "Content-Type": "application/json",
             },
-            body:{
+            body:JSON.stringify({
                 username:userName,
                 password:password
-            },
+            }),
           })
             .then((response) => response.json())
             .then((responseData) => {
@@ -55,8 +45,14 @@ export default function Login({navigation}) {
 
         .catch ((err)=>console.log(err))
        
-
+        navigation.navigate('Home')
     }
+   
+
+else{
+ console.log('Login Failed')
+}
+}
   // Function to toggle the password visibility state 
   const toggleShowPassword = () => { 
     setShowPassword(!showPassword); 
@@ -65,7 +61,7 @@ export default function Login({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.logoView}>
-                <Image source={logo} resizeMode="contain" style={styles.logo} />
+                <Image source={logo} resizeMode="contain" style={styles.logoImage} />
             </View>
             <View style={styles.inputView}>
                 <TextInput
@@ -158,7 +154,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         marginTop: 0,
     },
-    logo: {
+    logoImage: {
         marginBottom: 25,
         width: 250,
         height: 100,
