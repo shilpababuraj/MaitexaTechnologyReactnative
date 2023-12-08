@@ -3,7 +3,7 @@ import React ,{useState,useEffect}from 'react'
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import { appStackParamList } from '../App';
 // import AnimatedLoader from 'react-native-animated-loader';
-import LoaderKit from 'react-native-loader-kit'
+// import LoaderKit from 'react-native-loader-kit'
 
 type CategoryProp = NativeStackScreenProps <appStackParamList,"ProductsCategories">;
 
@@ -81,12 +81,12 @@ useEffect(() => {
       <Text>Doing something...</Text>
     </AnimatedLoader> */}
 
-<LoaderKit
+{/* <LoaderKit
   style={{ width: 50, height: 50 }}
   name={'BallPulse'} // Optional: see list of animations below
   size={50} // Required on iOS
   color={'red'} // Optional: color can be: 'red', 'green',... or '#ddd', '#ffffff',...
-/>
+/> */}
 
      <FlatList
      data={proCategory}

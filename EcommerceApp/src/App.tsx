@@ -13,8 +13,27 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from './components/Home';
 import Index from './components/Index';
+import ProductDetails from './components/ProductDetails';
 
-const Stack = createStackNavigator();
+
+export type AppStackParamList = {
+  Login: undefined;
+  Register:undefined;
+  Home: { id: string };
+  ProductDetails:{
+    
+    product:ProductProp};
+};
+
+const Stack = createStackNavigator<AppStackParamList>();
+
+// {"error": false, 
+// "expiresIn": 3600, 
+// "loginId": "656ca29647f91e7e40ca73fa",
+//  "success": true, 
+//  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTZjYTI5NjQ3ZjkxZTdlNDBjYTczZmEiLCJ1c2VyTmFtZSI6InNoaWxwYSIsInVzZXJSb2xlIjoyLCJpYXQiOjE3MDE3NTU5ODEsImV4cCI6MTcwMTc1OTU4MX0.c0Ft2mFhAqCo6JiCGEzl33wiYwsNNGOR3Fd1Edguwf4",
+//   "userName": "shilpa",
+//    "userRole": 2}
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -24,6 +43,11 @@ function App() {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
+
+  const saveToken=()=>
+  {
+    
+  }
   return (
     <SafeAreaView style={[styles.container, backgroundStyle]}>
       <StatusBar
@@ -59,6 +83,7 @@ function App() {
               },
             }} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="ProductDetails" component={ProductDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

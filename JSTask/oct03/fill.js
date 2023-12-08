@@ -5,6 +5,6 @@ function func() {
 	// here value = 87, start index=1 and
 	// and last index = 3
 	arr.fill(87, 1, 3);
-	console.log(arr);
+	console.log(arr);  
 }
-func();
+func();  // output [ 1, 87, 87, 58 ]
